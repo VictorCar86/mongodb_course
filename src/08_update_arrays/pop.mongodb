@@ -1,0 +1,12 @@
+use("platzi_store")
+
+// db.Inventory.updateMany({},
+//   // remove first element
+//   { $pop: { tags: -1 } }
+// )
+db.Inventory.updateMany({},
+  // remove last element
+  { $pop: { tags: 1 } }
+)
+
+db.Inventory.find()

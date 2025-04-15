@@ -1,0 +1,37 @@
+use("platzi_store")
+
+db.Products.drop()
+
+db.Products.insertMany([
+  {
+    name: "Nice Product",
+    price: 100,
+  },
+  {
+    name: "Great Product",
+    price: 299,
+  },
+  {
+    name: "Best Product",
+    price: 100,
+  },
+  {
+    name: "Grand Product",
+    price: 300,
+  }
+])
+
+// db.Products.updateMany(
+//   { price: { $gte: 100 } },
+//   {
+//     $max: { price: 150 },
+//   }
+// )
+db.Products.updateMany(
+  { price: { $gte: 100 } },
+  {
+    $min: { price: 150 },
+  }
+)
+
+db.Products.find()

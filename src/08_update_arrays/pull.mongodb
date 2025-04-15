@@ -1,0 +1,13 @@
+use("platzi_store")
+
+db.Inventory.updateOne(
+  { _id: 2 },
+  { $pull: { tags: "book" } }
+)
+db.Inventory.updateMany({},
+  { $pull: {
+    tags: { $in: ["book", "school"] } }
+  }
+)
+
+db.Inventory.find()

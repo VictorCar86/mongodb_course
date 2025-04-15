@@ -1,0 +1,19 @@
+use("platzi_store")
+
+db.Products.insertOne({
+  _id: 99,
+  name: "producto test",
+  price: 100,
+})
+
+db.Products.updateOne(
+  { _id: 99 },
+  {
+    $set: {
+      name: "producto 1",
+      price: 400,
+    },
+  }
+)
+
+db.Products.find()

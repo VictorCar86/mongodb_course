@@ -1,0 +1,18 @@
+use("platzi_store")
+
+db.Products.insertOne({
+  _id: ObjectId("67feca0a9cc54910576c45d9"),
+  name: "producto test",
+  price: 200,
+})
+
+db.Products.updateOne(
+  { _id: ObjectId("67feca0a9cc54910576c45d9"), },
+  {
+    $inc: {
+      price: 400,
+    },
+  }
+)
+
+db.Products.find()

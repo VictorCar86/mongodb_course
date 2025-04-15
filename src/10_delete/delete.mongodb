@@ -1,0 +1,7 @@
+use("platzi_store")
+
+// db.Products.deleteOne({ _id: 1 })
+db.Products.deleteMany({ price: 100 })
+// db.Products.deleteMany({ price: { $gt: 100 } })
+
+db.Products.find()
