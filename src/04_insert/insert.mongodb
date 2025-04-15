@@ -1,0 +1,10 @@
+use("platzi_store")
+
+db.Products.insertOne({
+  name: "producto 1",
+  price: 100,
+})
+db.Products.insertOne({
+  name: "producto 1",
+  price: 100,
+})

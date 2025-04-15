@@ -1,0 +1,11 @@
+# JavaScript
+/node_modules
+
+# Docker
+/mongo_data
+
+# Prisma
+/generated/prisma/
+
+# Env
+.env

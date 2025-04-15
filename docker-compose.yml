@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  mongodb:
+    build:
+      context: .
+      args:
+        MONGO_VERSION: 5
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root123
+      MONGO_REPLICA_PORT: 27017
+      MONGO_REPLICA_HOST: localhost
+      # Use "mongo" instead of "mongosh" before v5.0
+      MONGO_COMMAND: 'mongosh'
+    restart: unless-stopped
+    healthcheck:
+      # Use "mongo" instead of "mongosh" before v5.0
+      test: ['CMD', 'mongosh', 'admin', '--port', '27018', '--eval', "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 2s
+      retries: 20
+    volumes:
+      - /mongo_data:/data/db
