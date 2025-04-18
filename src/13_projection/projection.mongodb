@@ -1,0 +1,8 @@
+use("platzi_store")
+
+// Projection returns only the specified fields
+db.Inventory.find({}, {
+  _id: 0,
+  qty: 1,
+  tags: 1
+})

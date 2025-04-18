@@ -1,0 +1,40 @@
+// use("platzi_store")
+
+// db.MonthlyBudget.find({ spent: {$gte: 100} })
+// db.MonthlyBudget.find({ $expr: { $gte: ["$spent", 100] } })
+
+// db.MonthlyBudget.find({
+//   $expr: {
+//     $gte: ["$spent", "$budget"]
+//   }
+// })
+// db.MonthlyBudget.find({
+//   $expr: {
+//     $gte: ["$budget", "$spent"]
+//   }
+// })
+
+
+use("sample_training")
+
+// db.trips.find()
+// db.trips.find({
+//   $expr: {
+//     $eq: ["$start station id", "$end station id"]
+//   }
+// })
+// .count()
+
+// db.trips.find({
+//   $expr: {
+//     $and: [
+//       { $eq: ["$start station id", "$end station id"] },
+//       { $lte: ["$tripduration", 300] }
+//     ]
+//   }
+// }).count()
+
+db.trips.find({
+  $expr: { $eq: ["$start station id", "$end station id"] },
+  tripduration: { $lte: 300 },
+}).count()

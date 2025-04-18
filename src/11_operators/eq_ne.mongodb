@@ -1,0 +1,27 @@
+use("platzi_store")
+
+
+// $eq <- Equals //
+
+// db.Inventory.find({ qty: 20 })
+// db.Inventory.find({
+//   qty: { $eq: 20 }
+// })
+
+db.Inventory.updateMany(
+  { qty: { $eq: 20 } },
+  { $inc: { qty: 99 } }
+)
+db.Inventory.find()
+
+// $ne <- Not Equals //
+
+// db.Inventory.find({
+//   qty: { $ne: 20 }
+// })
+
+db.Inventory.updateMany(
+  { qty: { $ne: 20 } },
+  { $mul: { qty: 3 } }
+)
+db.Inventory.find()

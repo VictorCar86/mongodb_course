@@ -8,7 +8,6 @@ docker-compose exec mongodb bash
 
 ```sh
 mongosh "mongodb://root:root123@localhost:27017/?authMechanism=DEFAULT&tls=false"
-mongosh "mongodb+srv://nicoadmin:nicoadmin123@mongodb101.wbxsnx8.mongodb.net/test"
 ```
 
 ```sh

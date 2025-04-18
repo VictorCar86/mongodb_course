@@ -1,0 +1,68 @@
+use("sample_training")
+
+// AND implict
+// db.inspections.find({
+//   sector: "Tax Preparers - 891",
+//   result: "Unable to Locate"
+// }).count() // 6
+
+// AND explict -> [{}, {}, {}]
+// db.inspections.find({
+//   $and: [
+//     { sector: "Tax Preparers - 891" },
+//     { result: "Unable to Locate" }
+//   ]
+// }).count() // 6
+
+// OR
+// db.inspections.find({
+//   $or: [
+//     { sector: "Tax Preparers - 891" },
+//     { result: "Unable to Locate" }
+//   ]
+// }).count()
+
+// NOR
+// db.inspections.find({
+//   $nor: [
+//     { sector: "Tax Preparers - 891" },
+//     { result: "Unable to Locate" }
+//   ]
+// })
+// db.inspections.find({
+//   $nor: [
+//     { result: "No Violation Issued" },
+//     { result: "Unable to Locate" }
+//   ]
+// } , {
+//   result: 1,
+//   _id: 0
+// }, { limit: 10 })
+
+// NOT
+// db.inspections.find({
+//   result: { $not: { $regex: /Unable to Locate/ } }
+// }, {}, { limit: 10  })
+
+
+// Examples
+
+// db.routes.find({ airplane: "E70" }).count()
+// db.routes.find({
+//   $and: [
+//     { $or: [{ airplane: /320/ }, { airplane: 320 }] },
+//     { $or: [{ dst_airport: "BOG" }, { src_airport: "BOG" }] }
+//   ]
+// }).count()
+
+// db.routes.find({
+//   $and: [
+//     { airplane: "E70" },
+//     {
+//       $or: [
+//         { dst_airport: "BOG" },
+//         { src_airport: "BOG" },
+//       ]
+//     }
+//   ]
+// })
